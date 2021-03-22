@@ -4,6 +4,8 @@ from sklearn.datasets import make_classification, load_iris
 from sklearn.model_selection import cross_val_score, GridSearchCV
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.pipeline import Pipeline
 
 """
     LinearDiscriminantAnalysis is classifier not an reducer. 
@@ -76,8 +78,8 @@ def prediction():
 
 
 def LDA_as_reduction():
-    X, y = make_classification(n_samples=10, n_features=6, n_informative=6, n_redundant=0, random_state=1)
-    model = LinearDiscriminantAnalysis(n_components=1)
+    X, y = make_classification(n_samples=10, n_features=6, n_informative=6, n_redundant=0, random_state=2, n_classes=3)
+    model = LinearDiscriminantAnalysis(n_components=2)
     print(X, y)
     print(model.get_params(True))
     model.fit(X, y)
@@ -85,12 +87,16 @@ def LDA_as_reduction():
     X_trans = model.transform(X)
     print(X_trans)
     model.fit(X_trans, y)
-    print(model.predict([[2]]))
-    print(model.predict([[-3]]))
+    print(model.predict([[2, 4]]))
+    print(model.predict([[-3, 5]]))
+
+
+def LDA_as_reduction_using_pipeline():
+    steps = [("lda", LinearDiscriminantAnalysis()), ("m", GaussianNB())]
 
 
 if __name__ == "__main__":
     #prediction()
     #iris_data()
-    iris_data_reduction()
-    #LDA_as_reduction()
+    #iris_data_reduction()
+    LDA_as_reduction()
