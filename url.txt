@@ -1,2 +1,14 @@
+Machine learning mastery: https://machinelearningmastery.com/blog 
+
+Linear Discriminant Analysis: https://machinelearningmastery.com/linear-discriminant-analysis-with-python/ 
+
+SciLearn API doc: https://scikit-learn.org/stable/datasets/toy_dataset.html#toy-datasets 
+
+https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/ 
+
 LDA reduction: https://machinelearningmastery.com/linear-discriminant-analysis-for-dimensionality-reduction-in-python/
+
+https://www.theanalysisfactor.com/the-fundamental-difference-between-principal-component-analysis-and-factor-analysis/#:~:text=Both%20are%20data%20reduction%20techniques,variables%20in%20a%20smaller%20set.&text=Despite%20all%20these%20similarities%2C%20there,model%20of%20a%20latent%20variable.
+
+https://devopedia.org/principal-component-analysis
 

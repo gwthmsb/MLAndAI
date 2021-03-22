@@ -93,10 +93,31 @@ def LDA_as_reduction():
 
 def LDA_as_reduction_using_pipeline():
     steps = [("lda", LinearDiscriminantAnalysis()), ("m", GaussianNB())]
+    model = Pipeline(steps)
+    X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=0, random_state=2, n_classes=11)
+    model.fit(X, y)
+    cv = RepeatedStratifiedKFold(n_repeats=3, n_splits=3, random_state=1)
+
+    result = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+    print(mean(result), std(result))
+    # 0.353323383263503 0.023301238927184588
+
+    # LDA feature reduction from 20 to 10
+
+    steps = [("lda", LinearDiscriminantAnalysis(n_components=9)), ('m', GaussianNB())]
+    model = Pipeline(steps)
+    model.fit(X, y)
+    result = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+    print(mean(result), std(result))
+    # 0.34565903228577877 0.015750493488623934
+
+    """
+        Here accuracy mean is just 0.3456, ie this model is not so great for current data set.
+    """
 
 
 if __name__ == "__main__":
     #prediction()
     #iris_data()
     #iris_data_reduction()
-    LDA_as_reduction()
+    LDA_as_reduction_using_pipeline()
