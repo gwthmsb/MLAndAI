@@ -12,3 +12,12 @@ https://www.theanalysisfactor.com/the-fundamental-difference-between-principal-c
 
 https://devopedia.org/principal-component-analysis
 
+
+=====================================
+Feature selection and reduction
+=====================================
+Dimensionality reduction: 
+	https://towardsdatascience.com/11-dimensionality-reduction-techniques-you-should-know-in-2021-dcb9500d388b
+	https://www.analyticsvidhya.com/blog/2018/08/dimensionality-reduction-techniques-python/
+
+
